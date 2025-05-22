@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get "questions/easy", to: "questions#easy"
   get "questions/medium", to: "questions#medium"
   get "questions/hard", to: "questions#hard"
+  get "standings/all", to: "standings#index"
+  get "standings", to: "standings#list"
 end

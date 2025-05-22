@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Question.destroy_all
+Standing.destroy_all
+
 questions = [
   { difficulty: "easy", category: "Astronomy", question: "What planet is known as the Red Planet?", correct_answer: "Mars", incorrect_answers: ["Venus", "Jupiter", "Mercury"] },
   { difficulty: "easy", category: "Astronomy", question: "How many planets are in our solar system?", correct_answer: "8", incorrect_answers: ["7", "9", "10"] },
@@ -318,6 +321,24 @@ questions = [
   }
 
 ]
+
+Standing.create!([
+  { name: "Alice", percent_correct: 90, money_earned: 1500, difficulty: "easy" },
+  { name: "Bob", percent_correct: 85, money_earned: 1200, difficulty: "easy" },
+  { name: "Charlie", percent_correct: 88, money_earned: 1300, difficulty: "easy" }
+])
+
+Standing.create!([
+  { name: "Dana", percent_correct: 75, money_earned: 2000, difficulty: "medium" },
+  { name: "Eli", percent_correct: 78, money_earned: 2200, difficulty: "medium" },
+  { name: "Frank", percent_correct: 70, money_earned: 1900, difficulty: "medium" }
+])
+
+Standing.create!([
+  { name: "Grace", percent_correct: 60, money_earned: 3000, difficulty: "hard" },
+  { name: "Hector", percent_correct: 55, money_earned: 2800, difficulty: "hard" },
+  { name: "Ivy", percent_correct: 58, money_earned: 3100, difficulty: "hard" }
+])
 
 questions.each do |question_data|
   Question.create!(question_data)
